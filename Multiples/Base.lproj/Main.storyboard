@@ -45,7 +45,7 @@
                                     <constraint firstAttribute="width" constant="113" id="Xpo-Qa-LVQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXZ-6w-rqm">
                                 <rect key="frame" x="108" y="215" width="384" height="90"/>
@@ -84,6 +84,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="multTextField" destination="alY-yW-IfF" id="Qns-8e-wfF"/>
                         <segue destination="DlI-gF-WJe" kind="show" identifier="gameScreen" id="Yhb-6j-5KU"/>
                     </connections>
                 </viewController>
@@ -91,10 +92,10 @@
             </objects>
             <point key="canvasLocation" x="24" y="442"/>
         </scene>
-        <!--View Controller-->
+        <!--GameVC-->
         <scene sceneID="C0H-0G-UQI">
             <objects>
-                <viewController id="DlI-gF-WJe" sceneMemberID="viewController">
+                <viewController id="DlI-gF-WJe" customClass="gameVC" customModule="Multiples" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wrn-AC-HXT"/>
                         <viewControllerLayoutGuide type="bottom" id="2by-f2-n8a"/>
@@ -113,6 +114,9 @@
                                     <constraint firstAttribute="height" constant="64" id="kVV-1o-cYm"/>
                                 </constraints>
                                 <state key="normal" image="addgreen"/>
+                                <connections>
+                                    <action selector="addPressed:" destination="DlI-gF-WJe" eventType="touchUpInside" id="L6G-sS-CLS"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 + 5 = 20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djj-0r-CnU">
                                 <rect key="frame" x="151" y="145" width="299" height="64"/>
@@ -137,6 +141,9 @@
                             <constraint firstAttribute="trailing" secondItem="zsw-sN-ozJ" secondAttribute="trailing" id="uKd-7P-mbY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="sumLbl" destination="djj-0r-CnU" id="bru-8d-m4r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ze-fX-aHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

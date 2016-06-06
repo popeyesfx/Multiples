@@ -8,22 +8,57 @@
 
 import UIKit
 
-class startVC: UIViewController {
+class startVC: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var multTextField: UITextField!
+    
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        multTextField.delegate = self
+        
+        
     }
 
+    
+    override func viewDidAppear(animated: Bool) {
+       
+        multTextField.text = ""
+        
+    }
+    
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
 
     @IBAction func playPressed(sender: UIButton) {
     
-        performSegueWithIdentifier("gameScreen", sender: nil)
+        if (multTextField.text != "" &&  multTextField.text != nil) {
+            
+            performSegueWithIdentifier("gameScreen", sender: nil)
+            
+        }
+   }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+       
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        
+        GameData.instance.currentValue = Int(multTextField.text!)!
+       print(GameData.instance.currentValue)
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        multTextField.resignFirstResponder()
+        return true
+        
     }
 
 }

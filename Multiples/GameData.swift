@@ -15,6 +15,7 @@ class GameData {
     private var _runningTotal:Int = 0
     private var _currentValue:Int = 0
     private var _sum:Int = 0
+    private let MaxRep = 10
     
     
     var runningTotal:Int {
@@ -58,7 +59,31 @@ class GameData {
     
     func computeSum() -> Int {
         
-        return (sum + currentValue)
+        sum = sum + currentValue
+        return (sum)
+    }
+    
+    func calcRunningTotal() -> Int {
+        
+        runningTotal = runningTotal + currentValue
+        
+        return (runningTotal)
+        
+    }
+    
+    func checkMax() -> Bool {
+       
+        if ( sum > (currentValue * MaxRep)) {
+        
+            return true
+        
+        }else {
+        
+            return false
+        
+        }
+        
+        
     }
     
 }
